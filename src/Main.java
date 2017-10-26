@@ -61,10 +61,13 @@ public class Main {
             do {//Do loop for entering in Educational Details
 //            Prompt user for Education Details
                 System.out.println("<---Education--->");
-                System.out.println("Enter Education");
-                education.setDegree(keyboard.nextLine());
+
                 System.out.println("Enter University");
                 education.setUniversity(keyboard.nextLine());
+                System.out.println("Enter Degree");
+                education.setDegree(keyboard.nextLine());
+                System.out.println("Enter Major");
+                education.setMajor(keyboard.nextLine());
                 System.out.println("Enter gradYear");
                 education.setGradyear(keyboard.nextLine());
                 //Add user Education to Arraylist
@@ -115,5 +118,48 @@ public class Main {
             }
         }while (skillcount<20);
         System.out.println ("You have entered" +(skillcount)+"Work Experinces");
+
+
+
+
+        //Print Full Resume
+
+        //Display Person Details
+        for (Person eachperson:personArrayList
+             ) {
+            System.out.println(eachperson.getFirstname()+""+eachperson.getLastName());
+            System.out.println(eachperson.getEmail());
+            System.out.println("<---Education--->");
+
+            //Display Education from ArrayList
+            for (Education newed:educationArrayList
+                 ) {
+                System.out.println(newed.getDegree()+"Major :"+newed.getMajor()+"");
+                System.out.println(newed.getUniversity()+ ","+newed.getGradyear()+"");
+            }
+
+            //Display Experince from ArrayList
+            for (Experience newexp:experienceArrayList
+                 ) {
+                System.out.println(newexp.getJobTitle());
+                System.out.println(newexp.getCompanyTitle()+"."+newexp.getStartDate()+newexp.getEndDate());
+
+                //Display Job Duties ArrayList
+                for (Object newDuty:newexp.dutyList
+                        ) {
+                    System.out.println("Duty; "+newDuty);
+
+                }
+            }
+
+            //Display Skills from ArrayList
+            System.out.println("<---Skills--->");
+            for (Skills newSkill:skillsArrayList
+                 ) {
+                System.out.println(newSkill.getSkill()+ ","+newSkill.getSkillRating());
+
+            }
+
+        }
     }
 }
