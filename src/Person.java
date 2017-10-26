@@ -7,15 +7,17 @@ public class Person {
     private String firstname,lastName,email;
     private ArrayList<Education> educationArrayList;
     private ArrayList<Experience>experienceArrayList;
-    private ArrayList<Skills>skillsArrayList;
+    private ArrayList<Skill>skillsArrayList;
 
     public Person() {
         this.firstname = firstname;
         this.lastName = lastName;
         this.email = email;
-        this.educationArrayList = educationArrayList;
-        this.experienceArrayList = experienceArrayList;
-        this.skillsArrayList = skillsArrayList;
+        this.educationArrayList = new ArrayList<Education>();
+        this.experienceArrayList = new ArrayList<Experience>();
+        this.skillsArrayList = new ArrayList<Skill>();
+
+
     }
 
     public String getFirstname() {
@@ -58,16 +60,20 @@ public class Person {
         this.experienceArrayList = experienceArrayList;
     }
 
-    public ArrayList<Skills> getSkillsArrayList() {
+    public ArrayList<Skill> getSkillsArrayList() {
         return skillsArrayList;
     }
 
-    public void setSkillsArrayList(ArrayList<Skills> skillsArrayList) {
+    public void setSkillsArrayList(ArrayList<Skill> skillsArrayList) {
         this.skillsArrayList = skillsArrayList;
     }
 
-    //Used for Validation Testing
+    //Methods to add to ArrayList
     public void addEducation(Education aEducation){
         educationArrayList.add(aEducation);
     }
+
+    public void addExperience(Experience aExperience){experienceArrayList.add(aExperience);}
+
+    public void addSkill(Skill aSkill){skillsArrayList.add(aSkill);}
 }

@@ -1,9 +1,9 @@
 /**
  * Created by ${TravisGray} on 10/25/2017.
  */
-public class Skills {
+public class Skill {
     private String skill,skillRating;
-    public Skills() {
+    public Skill() {
         this.skill = skill;
         this.skillRating = skillRating;
     }
