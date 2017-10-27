@@ -72,65 +72,67 @@ public class Main {
                 person.addEducation(education);
                 educount++;
                 System.out.println("You have entered in " + (educount) + " Educational Achievements");
-                System.out.println(educount);
 
-                if (educount < 2) {
+                if (educount < 10) {
                     System.out.println("Are You Done with educataion Submissions?");
                 }
 
                 System.out.println("Would you like to add more education? (Y)es or (N)o");
                 ans = keyboard.nextLine();
-                System.out.println(ans);
-            } while (!ans.equalsIgnoreCase("y")&& educount <=5);
+            } while (!ans.equalsIgnoreCase("n")&& educount <=10);
 
 
 
+    do {        //Test for Validation Count for Work Experinces
+        //Prompt user for Experince Details
+        System.out.println("<------Experience------->");
+        System.out.println("Enter Job Title");
+        experience.setJobTitle(keyboard.nextLine());
+        System.out.println("Enter Company Name");
+        experience.setCompanyTitle(keyboard.nextLine());
+        System.out.println("Enter Start Date");
+        experience.setStartDate(keyboard.nextLine());
+        System.out.println("Enter End Date");
+        experience.setEndDate(keyboard.nextLine());
+        //Add user Experince to ArrayList from Add method
+        person.addExperience(experience);
+        workcount++;
+        System.out.println ("You have entered" +(workcount)+"Work Exerinces");
 
-//        //Prompt user for Experince Details
-//        System.out.println("<------Experience------->");
-//        System.out.println("Enter Job Title");
-//        experience.setJobTitle(keyboard.nextLine());
-//        System.out.println("Enter Company Name");
-//        experience.setCompanyTitle(keyboard.nextLine());
-//        System.out.println("Enter Start Date");
-//        experience.setStartDate(keyboard.nextLine());
-//        System.out.println("Enter End Date");
-//        experience.setEndDate(keyboard.nextLine());
-//        //Add user Experince to ArrayList from Add method
-//        person.addExperience(experience);
-//
-//        //Test for Validation Count for Work Experinces
-//        do{
-//            if (workcount<10){
-//                workcount++;
-//                System.out.println("Please enter Work Experinces  (Max of 10)");
-//                String workexp = keyboard.nextLine();
-//            }
-//        }while (workcount>=10);
-//        System.out.println ("You have entered" +(workcount)+"Work Exerinces");
-//
-//
-//        //Prompt user for Skills Details
-//        System.out.println("Enter Skills");
-//        skills.setSkill(keyboard.nextLine());
-//        System.out.println("Enter Skill Level Rating (Basic,Intermediate,Advanced)");
-//        skills.setSkillRating(keyboard.nextLine());
-//        //Add user Skills to ArrayList from Person add Method
-//        person.addSkill(skills);
-//
-//        //Test for Validation Count for Skills and Ratings Working can try For Loop with Counter
-//        do{
-//            if (skillcount<20){
-//                skillcount++;
-//                System.out.println("Please enter Skills and Ratings (Max of 10)");
-//                String skill = keyboard.nextLine();
-//            }
-//
-//        }while (skillcount>=20);
-//
-//        System.out.println ("You have entered" +(skillcount)+"Work Experinces");
-//
-//
+            if (workcount <= 10) {
+                System.out.println("Are You Done with Experience  Submissions? ");
+            }
+
+        System.out.println("Would you like to add more Work Experinces? (Y)es or (N)o");
+        ans = keyboard.nextLine();
+        } while (!ans.equalsIgnoreCase("n")&& workcount <=10);
+
+
+
+    do {            //Test for Validation Count for Skills and Ratings Working can try For Loop with Counter
+        for (int i = 0; i < 20; i++) {
+            //Prompt user for Skills Details
+            System.out.println("Enter Skills");
+            skills.setSkill(keyboard.nextLine());
+            System.out.println("Enter Skill Level Rating (Basic,Intermediate,Advanced)");
+            skills.setSkillRating(keyboard.nextLine());
+            //Add user Skills to ArrayList from Person add Method
+            person.addSkill(skills);
+            skillcount++;
+            System.out.println ("You have entered" +(skillcount)+"Work Experinces");
+
+
+                if (skillcount<20){
+
+                    System.out.println("Are You Done with Skill  Submissions? ");                }
+
+        }
+        System.out.println("Would you like to add more Skills and Ratings? (Y)es or (N)o");
+        ans = keyboard.nextLine();
+    }while (!ans.equalsIgnoreCase("n")&& skillcount <=20);
+
+
+
 
 
         //Print Full Resume
@@ -149,29 +151,29 @@ public class Main {
                 System.out.println("University: "+newed.getUniversity());
                 System.out.println("Graduation Year: "+newed.getGradyear());
             }
-//
-//            //Display Experince from ArrayList
-//            for (Experience newexp:person.getExperienceArrayList()
-//                 ) {
-//                System.out.println("<---Job Title--->");
-//                System.out.println(newexp.getJobTitle());
-//                System.out.println(newexp.getCompanyTitle()+"."+newexp.getStartDate()+"-"+newexp.getEndDate());
-//
-//                //Display Job Duties ArrayList
-//                for (Object newDuty:newexp.dutyList
-//                        ) {
-//                    System.out.println("Duty; "+newDuty);
-//
-//                }
-//            }
-//
-//            //Display Skills from ArrayList
-//            System.out.println("<---Skills--->");
-//            for (Skill eachSkill:person.getSkillsArrayList()
-//                 ) {
-//                System.out.println(eachSkill.getSkill()+ ","+eachSkill.getSkillRating());
-//
-//            }
+
+            //Display Experince from ArrayList
+            for (Experience newexp:person.getExperienceArrayList()
+                 ) {
+                System.out.println("<---Job Title--->");
+                System.out.println(newexp.getJobTitle());
+                System.out.println(newexp.getCompanyTitle()+"."+newexp.getStartDate()+"-"+newexp.getEndDate());
+
+                //Display Job Duties ArrayList
+                for (Object newDuty:newexp.dutyList
+                        ) {
+                    System.out.println("Duty; "+newDuty);
+
+                }
+            }
+
+            //Display Skills from ArrayList
+            System.out.println("<---Skills--->");
+            for (Skill eachSkill:person.getSkillsArrayList()
+                 ) {
+                System.out.println(eachSkill.getSkill()+ ","+eachSkill.getSkillRating());
+
+            }
 
         }
     }
