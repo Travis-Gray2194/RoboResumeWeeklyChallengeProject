@@ -32,10 +32,11 @@ public class Main {
         Education education = new Education();
         Skill skills = new Skill();
         Experience experience = new Experience();
+        String ans="n";
         int educount = 0;
         int workcount = 0;
         int skillcount = 0;
-        String ans="y";
+
         ArrayList<Person> personArrayList = new ArrayList<Person>();
 
 
@@ -69,12 +70,11 @@ public class Main {
             education.setMajor(keyboard.nextLine());
             System.out.println("Enter gradYear");
             education.setGradyear(keyboard.nextInt());
-            keyboard.nextLine();
             //Add user Education to Arraylist from Add method
             person.addEducation(education);
             educount++;
             System.out.println("You have entered in " + (educount) + " Educational Achievements");
-
+            keyboard.nextLine();
             if (educount < 10) {
                 System.out.println("Maximum of Only 10 Submissions!");
             }
@@ -97,17 +97,20 @@ public class Main {
             System.out.println("Enter End Date");
             experience.setEndDate(keyboard.nextLine());
             keyboard.nextLine();
+
             //Add user Experince to ArrayList from Add method
             person.addExperience(experience);
             workcount++;
-            System.out.println("You have entered" + (workcount) + "Work Exerinces");
+
 
             if (workcount <= 10) {
                 System.out.println("Maximum of Only 10 Submissions! ");
             }
 
+            System.out.println("You have entered" + (workcount) + "Work Exerinces");
             System.out.println("Would you like to add more Work Experinces? (Y)es or (N)o");
             ans = keyboard.nextLine();
+
         } while (!ans.equalsIgnoreCase("n") && workcount <= 10);
 
 
@@ -117,10 +120,10 @@ public class Main {
             skills.setSkill(keyboard.nextLine());
             System.out.println("Enter Skill Level Rating (Basic,Intermediate,Advanced)");
             skills.setSkillRating(keyboard.nextLine());
-            keyboard.nextLine();
             //Add user Skills to ArrayList from Person add Method
             person.addSkill(skills);
             skillcount++;
+            keyboard.nextLine();
             System.out.println("You have entered" + (skillcount) + "Work Experinces");
 
 
@@ -132,7 +135,8 @@ public class Main {
 
             System.out.println("Would you like to add more Skills and Ratings? (Y)es or (N)o");
             ans = keyboard.nextLine();
-        } while (!ans.equalsIgnoreCase("n") && skillcount <= 20);
+            keyboard.nextLine();
+        } while (!ans.equalsIgnoreCase("n") || skillcount <= 20);
 
 
         //Print Full Resume
@@ -148,7 +152,7 @@ public class Main {
         for (Education newed : person.getEducationArrayList()
                 ) {
 
-            System.out.println("<---Education--->");
+            System.out.println("Education");
             System.out.println(newed.getDegree() + " " + newed.getMajor() + "");
             System.out.println("University: " + newed.getUniversity());
             System.out.println("Graduation Year: " + newed.getGradyear());
@@ -157,7 +161,7 @@ public class Main {
         //Display Experince from ArrayList
         for (Experience newexp : person.getExperienceArrayList()
                 ) {
-            System.out.println("<---Job Title--->");
+            System.out.println("Job Title");
             System.out.println(newexp.getJobTitle());
             System.out.println(newexp.getCompanyTitle() + "." + newexp.getStartDate() + "-" + newexp.getEndDate());
 
@@ -169,10 +173,11 @@ public class Main {
             }
 
             //Display Skills from ArrayList
-            System.out.println("<---Skills--->");
+            System.out.println("Skills");
             for (Skill eachSkill : person.getSkillsArrayList()
                     ) {
-                System.out.println(eachSkill.getSkill() + "," + eachSkill.getSkillRating());
+                System.out.println(eachSkill.getSkill());
+                System.out.println(eachSkill.getSkillRating());
 
             }
 
