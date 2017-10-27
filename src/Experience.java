@@ -6,12 +6,13 @@ import java.util.ArrayList;
 public class Experience {
 
     private String jobTitle,companyTitle,startDate,endDate;
-    ArrayList<String>dutyList = new ArrayList<String>();
+    private ArrayList<String>dutyList;
     public Experience() {
         this.jobTitle= jobTitle;
         this.companyTitle = companyTitle;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.dutyList= new ArrayList<String>();
     }
 
     public String getJobTitle() {
@@ -52,5 +53,9 @@ public class Experience {
 
     public void setDutyList(ArrayList<String> dutyList) {
         this.dutyList = dutyList;
+    }
+
+    public void addDuties(String aDuty){
+        dutyList.add(aDuty);
     }
 }

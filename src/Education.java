@@ -6,7 +6,7 @@ public class Education {
     private String degree;
     private String major;
     private String university;
-    private String gradYear;
+    private int gradYear;
 
     public Education() {
         degree = degree;
@@ -39,11 +39,11 @@ public class Education {
         this.university = university;
     }
 
-    public String getGradyear() {
+    public int getGradyear() {
         return gradYear;
     }
 
-    public void setGradyear(String gradyear) {
+    public void setGradyear(int gradyear) {
         this.gradYear = gradyear;
     }
 }
